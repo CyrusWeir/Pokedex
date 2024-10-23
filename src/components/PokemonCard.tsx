@@ -1,4 +1,11 @@
-function PokemonCard({pokemon}) {
+interface pokemonCardProps {
+  pokemon: {
+  name: string,
+  imgSrc?: string
+}
+}
+
+function PokemonCard({ pokemon }:pokemonCardProps) {
   console.log(pokemon)
 
 
@@ -6,4 +13,4 @@ function PokemonCard({pokemon}) {
     <><p>???</p> <figcaption>{pokemon.name}</figcaption> </>
 
  
-} export default PokemonCard;
+} export default PokemonCard; 
