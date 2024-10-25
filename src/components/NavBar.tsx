@@ -1,35 +1,31 @@
 interface NavBarProps {
 	pokemonIndex: number;
 	setPokemonIndex: (index: number) => void;
-	pokemonList: Pokemon[];
+	pokemonList: pokemon[];
 }
+interface pokemon {
+	name: string;
+	imgSrc?: string;
+}
+
 function Nav({ pokemonList, setPokemonIndex, pokemonIndex }: NavBarProps) {
-	// const [pokemonIndex, setPokemonIndex] = useState(0);
-
-	const handleClick1 = () => {
-		setPokemonIndex(pokemonIndex + 1);
+	const handleClick = (pokemonName: string) => {
+		const index = pokemonList.findIndex(
+			(pokemon) => pokemon.name === pokemonName,
+		);
+		setPokemonIndex(index);
 	};
 
-	const handleClick2 = () => {
-		setPokemonIndex(pokemonIndex - 1);
-	};
+	// const handleClick2 = () => {
+	// 	setPokemonIndex(pokemonIndex - 1);
+	// };
 	return (
 		<div>
-			{pokemonIndex > 0 ? (
-				<button type="button" onClick={handleClick2}>
-					previous
+			{pokemonList.map((pokemon) => (
+				<button key={pokemon.name} onClick={() => handleClick(pokemon.name)}>
+					{pokemon.name}
 				</button>
-			) : (
-				<></>
-			)}
-
-			{pokemonIndex < pokemonList.length ? (
-				<button type="button" onClick={handleClick1}>
-					Next
-				</button>
-			) : (
-				<></>
-			)}
+			))}
 		</div>
 	);
 }

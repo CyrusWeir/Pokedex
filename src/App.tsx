@@ -42,7 +42,7 @@ function App() {
 
 	return (
 		<div>
-			<PokemonCard pokemon={pokemonList[0]} />
+			<PokemonCard pokemon={pokemonList[pokemonIndex]} />
 			{/* {pokemonIndex > 0 ? <button type="button" onClick={handleClick2}>previous</button> : <></>}
       
       {pokemonIndex < pokemonList.length ? <button type="button" onClick={handleClick1}>Next</button> : <></>} */}
@@ -51,6 +51,7 @@ function App() {
 				pokemonList={pokemonList}
 				pokemonIndex={pokemonIndex}
 				setPokemonIndex={setPokemonIndex}
+				pokemon={pokemonList[pokemonIndex]}
 			/>
 		</div>
 	);
